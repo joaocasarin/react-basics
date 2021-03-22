@@ -1,0 +1,13 @@
+
+# reacjs frontend ignored files/folders
+/frontend/reactjs/node_modules
+
+
+# first backend structure ignored files/folders
+/backend/node_modules
+/backend/.env
+/backend/.vscode
+
+
+# main folder ignored files/folders
+/.vscode
