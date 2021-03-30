@@ -16,10 +16,11 @@ module.exports = class ProjectController {
                 likes: 0
             };
 
-            await Project.create(repository);
+            await Project.create(project);
 
             return res.send({ status: 1, project });
         } catch(e) {
+            console.log(e);
             return res.send({ error: e.message });
         }
     }
