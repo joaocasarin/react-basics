@@ -57,7 +57,7 @@ module.exports = class ProjectController {
 
             if(!project) return res.status(400).send({ status: 0, message: 'Project not found.' });
 
-            return res.status(204).send({ status: 1, project });
+            return res.status(204).send();
         } catch(e) {
             return res.send({ error: e.message });
         }
@@ -72,7 +72,7 @@ module.exports = class ProjectController {
 
             const { likes } = project;
 
-            const updatedProject = await Project.findOneAndUpdate({ id: id }, { likes: likes + 1}, { new: true });
+            const updatedProject = await Project.findOneAndUpdate({ id: id }, { likes: likes + 1}, { new: true, fields: { 'id': 1, 'title': 1, 'url': 1, 'techs': 1, 'likes': 1, '_id': 0 } });
             return res.send({ status: 1, updatedProject });
         } catch(e) {
             return res.send({ error: e.message });

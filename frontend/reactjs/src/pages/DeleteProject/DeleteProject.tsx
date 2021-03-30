@@ -16,9 +16,10 @@ function ListProjects() {
         updateProjects();
     }, []);
 
-    const onLikeProject = async (id: string) => {
-        const newObj = (await axios.post(`${id}/like`)).data.updatedProject;
-        setProjects(projects.map(p => p.id === id ? newObj : p));
+    const onDeleteProject = async (id: string) => {
+        const deleteStatus = (await axios.delete(`delete/${id}`)).status;
+        const newArray = [...projects].filter(p => p.id !== id);
+        deleteStatus === 204 && setProjects(newArray);
     };
     
     return (
@@ -43,7 +44,7 @@ function ListProjects() {
                 <h3>URL: { p.url }</h3>
                 <h3>Techs: { p.techs.map((t: any, i: any) =>  i+1 < p.techs.length ? `${t}, ` : t) }</h3>
                 <h3>Likes: { p.likes }</h3>
-                <Button color="primary" variant="contained" onClick={() => onLikeProject(p.id) }>Like</Button>
+                <Button color="primary" variant="contained" onClick={() => onDeleteProject(p.id) }>Delete</Button>
             </div>) }
         </div>
     );
