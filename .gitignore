@@ -1,16 +1,2 @@
-
-# reacjs frontend ignored files/folders
-/frontend/reactjs/node_modules
-/frontend/reactjs/.gitignore
-/frontend/reactjs/README.md
-/frontend/reactjs/public
-/frontend/reactjs/.vscode
-
-# first backend structure ignored files/folders
-/backend/node_modules
-/backend/.env
-/backend/.vscode
-
-
 # main folder ignored files/folders
 /.vscode
