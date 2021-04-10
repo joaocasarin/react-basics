@@ -8,9 +8,8 @@ function Home() {
         height: `${window.innerHeight - 68}px`,
         width: `${window.innerWidth}px`        
     };
-    console.log(size);
+    /* console.log(size); */
     
-
     return(
         <div style={{ minHeight: 'calc(100vh - 64px)', minWidth: '100vw', backgroundColor: theme.bg, color: theme.color }}>
             <Particles 

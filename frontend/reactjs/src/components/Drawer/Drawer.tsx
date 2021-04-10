@@ -79,6 +79,16 @@ function Sidebar() {
                             </ListItemText>
                         </ListItem>
                     </Link>
+                    <Link to="/aioProject" className={classes.link}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <HomeIcon className={classes.icon} />
+                            </ListItemIcon>
+                            <ListItemText>
+                                AIO Project
+                            </ListItemText>
+                        </ListItem>
+                    </Link>
                     <Link to="/listProjects" className={classes.link}>
                         <ListItem button>
                             <ListItemIcon>
