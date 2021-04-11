@@ -27,10 +27,11 @@ module.exports = class ProjectController {
 
     async listProjects(req, res) {
         try {
-            const projects = await Project.find({}).select('-_id -__v');
-
+            const { page = 1, order_key = 'title', order = 'asc', limit = 3} = req.query;
+            const projects = await Project.find({}).select('-_id -__v').sort({ [order_key]: order }).skip(parseInt((page - 1) * limit)).limit(parseInt(limit));
             return res.send({ status: 1, projects });
         } catch(e) {
+            console.log(e);
             return res.send({ error: e.message });
         }
     }
